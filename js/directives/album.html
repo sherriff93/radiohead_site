@@ -1,1 +1,17 @@
-s
+<div class="album_tile_inner">
+	<img class="cover" ng-src="{{ info.albumImg }}" />
+	<h3>{{ info.title }}</h3>
+	<h4>{{ info.releaseDate | date }}</h4>
+	<div class="buy_options">
+		<a href="{{ info.itunesLink }}">
+			<div class="buy_button">
+				<h6>Itunes</h6>
+			</div>
+		</a>
+		<a href="{{ info.spotifyLink }}">
+			<div class="buy_button">
+				<h6>Spotify</h6>
+			</div>
+		</a>
+	</div>
+</div>

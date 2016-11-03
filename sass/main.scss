@@ -1,39 +1,96 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico); //CSS import
+@import "helper/fonts";
+@import "helper/variables";
 @import "helper/placeholders";
 @import "helper/mixins";
-@import "helper/variables";
 
 body {
+  z-index: 1;
   margin: 0;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 h1 {
-  margin: 0;
-  color: #FF4400;
-  font-family: Impact, Charcoal, sans-serif;
-  font-size: 300%;
-  @extend %center;
+  @extend %central;
+  @include defineTextStyle(2*$commonMargin, $commonFontFamily, 400%, rgb(200,200,200));
+  // margin: 2*$commonMargin;
+  // font-family: $commonFontFamily;
+  // color: rgb(200,200,200);
+  // font-size: 400%;
+}
+
+h2 {
+  @extend %central;
+  @include defineTextStyle(2*$commonMargin, $commonFontFamily, 250%, rgb(150,150,150));
+  // margin: 2*$commonMargin;
+  // font-family: $commonFontFamily;
+  // color: rgb(150,150,150);
+  // font-size: 250%;
+}
+
+h3 {
+  @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255));
+  // margin: 5px;
+  // font-family: $commonFontFamily;
+  // color: rgb(255,255,255);
+  // font-size: 250%;
+}
+
+h4 {
+  @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(150,150,150));
+  // margin: 5px;
+  // font-family: $commonFontFamily;
+  // font-size: 150%;
+  // color: rgb(150,150,150);
+}
+
+h5 {
+  @include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255))
+  // margin: 0;
+  // font-family: $commonFontFamily;
+  // color: rgb(255,255,255);
+  // font-size: 250%;
+}
+
+h6 {
+  @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150))
+  // margin: 0;
+  // font-family: $commonFontFamily;
+  // font-size: 150%;
+  // color: rgb(150,150,150);
+}
+
+.side_text {
+  @include exactSplit(45%, left);
+}
+
+.splitter {
+  @include exactSplit(50%, left);
+}
+
+.iframe_div {
+  @include exactSplit(55%, right);
+  iframe {
+    float: right;
+    // border: $thickBlackBorder;
+    margin: $commonMargin;
+    @include curvedCorners($commonRadius);
+  }
+
 }
 
 #logo {
   position: relative;
+  padding-top: 10px;
+  // padding-bottom: 10px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $navHeight + $commonMargin;
-  height: $logoHeight;
+  // width: 100%;
+  // margin-bottom: $navHeight + $commonMargin;
+  width: 100%;
+  // margin: 20px 0 20px 0;
+  // height: $logoHeight;
 }
-
-// #logo {
-//   position: relative;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-bottom: $navHeight + $commonMargin;
-//   height: $logoHeight;
-// }
 
 #bg_image {
   position: fixed;
@@ -41,91 +98,168 @@ h1 {
 }
 
 #content {
-  width: 100%;
+  // background-image: url("../images/radiohead_logo.png");
+  // z-index: 1;
+  margin: 0 10% 0 10%;
   height: 100%;
   position: relative;
-  z-index: 1;
+}
+
+#dummy_nav {
+  &.has_height {
+    @extend %has_nav_height;
+  }
 }
 
 #nav {
+  @extend %has_nav_height;
   display: block;
-  background-color: black;
-  opacity: 0.5;
+  box-sizing: border-box;
+  // background-color: black;
+  @include curvedCorners($commonRadius);
   z-index: 1;
-  left: 0;
-  right: 0;
-  margin: 0 10px 0 10px;
-  background-color: black;
-  opacity: 0.5;
+  border: 3px dashed black;
+  @extend %has_background_image;
+  // margin: 0 10px 0 10px;
   // &.hide {
   //   transition: top 0.3s ease-in-out;
   //   top: -$navHeight;
   // }
-}
-
-// #nav {
-//   margin-right: 50px;
-//   display: block;
-//   width: 100%;
-//   background-color: black;
-//   opacity: 0.5;
-//   z-index: 1;
-//   // &.hide {
-//   //   transition: top 0.3s ease-in-out;
-//   //   top: -$navHeight;
-//   // }
-// }
-
-.absolute {
-  position: absolute;
-  top: $logoHeight;
-}
-
-// .absolute {
-//   position: absolute;
-//   top: $logoHeight;
-// }
-
-.fixed {
-  position: fixed;
-  top: 0;
-}
-
-#nav_menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  li {
+  #nav_menu {
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    float: left;
-    .nav_item {
-      display: block;
-      padding: $navTextPadding;
-      font-family: Impact, Charcoal, sans-serif;
-      font-size: $navTextSize;
-      text-decoration: none;
-      &:link, &:visited, &:hover, &:active { color:#555555; }
-      &:hover{
-        background-color: red;
+    li {
+      float: left;
+      .nav_item {
+        display: block;
+        padding: $commonMargin;
+        font-family: $commonFontFamily;
+        font-size: $navTextSize;
+        text-decoration: none;
+        &:link, &:visited, &:active { color:rgb(255,255,255); }
+        @include fadeInOut(opacity, 1, 0.5, 0.15s);
       }
-      &.selected{
-        background-color: yellow;
-      }
+    }
+  }
+  &.is_relative {
+    position: relative;
+    width: 100%;
+    // top: $logoHeight;
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+    width: 80%;
+  }
+}
+
+#social_media {
+  display: inline-block;
+  height: 100%;
+  float: right;
+}
+
+.social_media_img {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  height:100%;
+  padding: $commonMargin $commonMargin $commonMargin 0;
+}
+
+.section { overflow: auto; }
+
+.spacer {
+  @extend .section;
+  @include curvedCorners($commonRadius);
+  display: block;
+  position: relative;
+  margin: $commonMargin 0 0 0;
+  padding: 0;
+  border: $thickBlackBorder;
+  @extend %has_background_image;
+  // background: $commonBackground;
+  // background-image: url("../images/cork_wallet.png");
+  // z-index: 1;
+}
+
+.album_tile {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  // overflow: auto;
+  @include exactSplit(33.333333%, left);
+  // border-top: $thinWhiteBorder;
+  // margin: 0;
+  // padding: 0;
+  // &:last-of-type { border-bottom: $thinWhiteBorder; }
+  .album_tile_inner {
+    padding: $commonMargin;
+    position: relative;
+    @extend %has_background_image;
+    @include curvedCorners($commonRadius);
+    // background: $commonBackground;
+    border: $thickBlackBorder;
+  }
+  &:nth-child(3n - 1) { .album_tile_inner { margin: $commonMargin 2*$commonMargin/3 0 0; } }
+  &:nth-child(3n),{ .album_tile_inner     { margin: $commonMargin $commonMargin/3 0 $commonMargin/3; } }
+  &:nth-child(3n + 1) { .album_tile_inner { margin: $commonMargin 0 0 2*$commonMargin/3; } }
+  .cover {
+    display: inline-block;
+    position: relative;
+    width: 70%;
+    border-radius: $commonRadius;
+    // border: $thickBlackBorder;
+  }
+  .buy_options {
+    display: block;
+    text-align: center;
+    .buy_button {
+      @include curvedCorners($buttonRadius);
+      margin: $commonMargin;
+      display: inline-block;
+      position: relative;
+      border: $thinWhiteBorder;
+      &:hover {background-color: darken($commonBackground, 100%); }
+      padding: $commonMargin/2;
     }
   }
 }
 
-// get rid at the end
-.spacer {
-  // @extend %curved_corners;
-  display: block;
+.tour_item_row {
   position: relative;
-  margin: $commonMargin;
-  height: 400px;
-  background-color: black;
-  opacity: 0.5;
+  overflow: auto;
+  border-top: $thinWhiteBorder;
+  padding: $commonMargin 2*$commonMargin $commonMargin 2*$commonMargin;
+  margin: 0 2*$commonMargin 0 2*$commonMargin;
+  @include fadeInOut(background-color, transparent, rgba(0, 0, 0, 0.2), 0s);
+  &:first-of-type { margin-top: 4*$commonMargin }
+  &:last-of-type {
+    border-bottom: $thinWhiteBorder;
+    margin-bottom: 4*$commonMargin;
+  }
+  .tickets {
+    @include curvedCorners($buttonRadius);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 $commonMargin $commonMargin 0;
+    border: $thinWhiteBorder;
+    &:hover {background-color:  rgba(0, 0, 0, 1); }
+    // @include fadeInOut(background-color, transparent, darken($commonBackground, 100%), 0s);
+    padding: $commonMargin/2;
+  }
 }
+
+
+
+
+
+
+
+
+
 // h1 {
 //   font-family: roboto, sans-serif;
 //   @extend %center;

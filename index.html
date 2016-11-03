@@ -1,42 +1,96 @@
-<!-- <!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Heading</h1>
-
-<p>My first paragraph.</p>
-
-</body>
-</html>
-
- -->
 <!DOCTYPE html>
 <html>
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/parallax.js"></script>
     <script type="text/javascript" src="js/scroll_behaviour.js"></script>
+
+    <script src="js/controllers/MainController.js"></script>
+    <script src="js/directives/album.js"></script>
+    <script src="js/directives/tourItem.js"></script>
+
     <link rel="stylesheet" type="text/css" href="sass/main.css">
+
   </head>
-  <body>
-    <img id="bg_image" src="images/radiohead_bg.jpg" width="100%" />
-    <div id="content">
+  <body ng-app="RadioheadApp">
+    <img id="bg_image" src="images/radiohead_bg.jpg" width="100%" /> <!-- style="filter: brightness(70%); opacity: 0.6" /> -->
+    <div id="content" ng-controller="MainController">
       <img id="logo" src="images/radiohead_logo.png" />
-      <div id="nav" class="absolute">
+      <div id="dummy_nav"></div>
+      <div id="nav" class="is_relative">
         <ul id="nav_menu">
-          <li><a class="nav_item" href="#news_section">News</a></li>
-          <li><a class="nav_item" href="#tour_dates_section">Tour Dates</a></li>
-          <li><a class="nav_item" href="#music_section">Music</a></li>
-          <li><a class="nav_item" href="#media_section">Media</a></li>
-          <li><a class="nav_item" href="#bookings_section">Bookings</a></li>
+          <li><a class="nav_item" href="#news">News</a></li>
+          <li><a class="nav_item" href="#tour_dates">Tour Dates</a></li>
+          <li><a class="nav_item" href="#media">Media</a></li>
+          <li><a class="nav_item" href="#bookings">Bookings</a></li>
+          <li><a class="nav_item" href="#music">Music</a></li>
         </ul>
+        <div id="social_media">
+          <a href="https://www.facebook.com/radiohead/">
+            <img class="social_media_img" src="images/facebook.png" />
+          </a>
+          <a href="https://twitter.com/radiohead/">
+            <img class="social_media_img" src="images/twitter.png" />
+          </a>
+          <a href="https://www.instagram.com/radiohead/">
+            <img class="social_media_img" src="images/instagram.png" />
+          </a>
+        </div>
       </div>
-      <div class="spacer" id="news_section"><h1>One</h1></div>
-      <div class="spacer" id="tour_dates_section"><h1>Two</h1></div>
-      <div class="spacer" id="music_section"><h1>Three</h1></div>
-      <div class="spacer" id="media_section" ><h1>Four</h1></div>
-      <div class="spacer" id="bookings_section"><h1>Five</h1></div>
+      <div class="section" id="news">
+        <div class="spacer"><!-- style="background-image: url(images/cork_wallet.png)">-->
+          <h1>News</h1>
+        </div>
+        <div class="spacer">  
+          <div class = "side_text">
+            <h2>"A moon shaped pool" now released!</h2>
+          </div>
+          <div class="iframe_div">
+            <div>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/yI2oS2hoL0k" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="tour_dates">
+        <div class="spacer">  
+          <h1>Tour Dates</h1>
+        </div>
+        <div class="spacer"> 
+        <div>
+          <div class="tour_item_row" ng-repeat="tourItem in tourItems">
+            <tour-item info="tourItem"></tour-item>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="section" id="media">
+        <div class="spacer">
+          <h1>Media</h1>
+        </div>
+      </div>
+      <div class="section" id="bookings">
+        <div class="spacer">
+          <h1>Bookings</h1>
+        </div>
+      </div>
+      <div class="section" id="music">
+        <div class="spacer">
+          <h1>Music</h1>
+        </div> 
+        <div class="album_tile" ng-repeat="album in albums">
+          <album info="album"></album>
+        </div>
+      </div>
     </div>
+
+    <!-- Modules -->
+    <!-- <script src="js/app.js"></script> -->
+
+
+
   </body>
 </html>
+

@@ -1,10 +1,14 @@
 // Sass variables
 
-// $lee: "../images/lee_scratch_perry.jpg";
 $logoHeight: 150px;
-$navTextSize: 30px;
-$navTextPadding: 10px;
+$navTextSize: 35px;
 $navTopSpace: 30px;
-$navHeight: $navTextSize + 2*$navTextPadding + 6px; // Accounts for inconsistency between alledged font sizing and actual pixel sizing
-$toHide: $navHeight + $navTopSpace;
 $commonMargin: 10px;
+$navHeight: $navTextSize + 2*$commonMargin + 2*5px; // Accounts for inconsistency between alledged font sizing and actual pixel sizing
+$toHide: $navHeight + $navTopSpace;
+$thinWhiteBorder: 2px solid white;
+$thickBlackBorder: 3px double black;
+$commonBackground: rgba(0, 0, 0, 0.8);
+$commonFontFamily: "rhFont", Impact, Charcoal, sans-serif;
+$commonRadius: 10px;
+$buttonRadius: 3px;

@@ -4,3 +4,28 @@
   width: $width;
   height: $height;
 }
+
+@mixin exactSplit($width, $float) {
+	float: $float;
+    width: $width;
+    box-sizing: border-box;
+}
+
+@mixin fadeInOut($propertyName, $fromValue, $toValue, $transitionLength) {
+	#{$propertyName}: $fromValue;
+	transition: #{$propertyName} $transitionLength ease-in-out;
+	-moz-transition: #{$propertyName} $transitionLength ease-in-out;
+	-webkit-transition: #{$propertyName} $transitionLength ease-in-out;
+	&:hover {#{$propertyName}: $toValue; }
+}
+
+@mixin curvedCorners($radius){
+	border-radius: $radius;
+}
+
+@mixin defineTextStyle($margin, $font-family, $font-size, $color) {
+	margin: $margin;
+	font-family: $font-family;
+	font-size: $font-size;
+	color: $color;
+}

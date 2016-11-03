@@ -1,12 +1,12 @@
-var main = function(){
+// var main = function(){
 
-   var navItem = $('.nav_item');
+//    var navItem = $('.nav_item');
 
-   // Highlights whichever navigation menu item is selected (clicked on)
-   navItem.click(function(){
-      navItem.removeClass('selected');
-      $(this).addClass('selected');
-   });
-};
-
-$(document).ready(main);
+//    // Highlights whichever navigation menu item is selected (clicked on)
+//    navItem.click(function(){
+//       navItem.removeClass('selected');
+//       $(this).addClass('selected');
+//    });
+// };
+// $(document).ready(main);
+var app = angular.module("RadioheadApp", []);

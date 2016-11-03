@@ -1,16 +1,23 @@
 // Replace yoffset with console.log($(window).scrollTop());
 // parallax fucks up when loaded at anchor
-// parallax fucks up when window resized
-// fade in/out nav items
-// Get rid of standrd hyperlink colors
+// parallax fucks up when window resized - Use $(window).on('resize')!
 // dont hide nav when mouse is over a single nav item
 // dont make header dissapear if at the top
 // hide class is wrong for nav
-// conert $() to nothing
-// Animate div headers as you scroll
+// Change "../" to "root"
+// Change unsuitable file names e.g. app.js (menu behaviour)
+// Make sass better
+// Change to percent for mobile webpages? maybe use <link rel="stylesheet" href="/styles/mobile.css" media="handheld" />
+// Put everything into Angular
+// IE takes weird font formats http://www.w3schools.com/cssref/css3_pr_font-face_rule.asp
+// Fix bug where Angular loads after JQuery causing headers to be opaque/ jump in background image when scrolling
+// Sort itunes and spotfy links
+// Make images small file size
+// Like/dislike buttons?
+// Have to scroll up to reset fade after refresh
 
 var main = function() {
-    
+
     var hasScrolled;
     var lastScrollTop = 0;
     var minScroll = 30; //Minimum scroll needed to hide nav
@@ -22,6 +29,8 @@ var main = function() {
     var interval = 100; // Interval at which state of scrolling is checked
     var idleTime = 0; // Length of time for which the page has been idle
     var maxIdleTime = 2000; // Length of time spent idle before nav is hidden
+
+    fadeOnScroll(); // Set initial fade values
 
     // Create scroll animation to scroll to a page section
     navItem.click(function() {
@@ -44,6 +53,7 @@ var main = function() {
         // Update parallax scrolling
         parallax();
         scrollNav();
+        fadeOnScroll();
         // If the window is scrolling to an anchor as part of the page load, do nothing
         if (onFirstHashScroll) { 
             onFirstHashScroll = false;
@@ -103,13 +113,30 @@ var main = function() {
 
     function scrollNav() {
         var logo = document.getElementById('logo');
-        var logoHeight = logo.height;
-        if (window.pageYOffset >= logo.height) { nav.addClass('fixed').removeClass('absolute'); }
-        else { nav.addClass('absolute').removeClass('fixed'); }
+        var logoHeight = $(logo).outerHeight();
+        var dummyNav = $('#dummy_nav');
+        if (window.pageYOffset >= logoHeight) {
+            nav.addClass('fixed').removeClass('is_relative');
+            dummyNav.addClass('has_height');
+        }
+        else {
+            nav.addClass('is_relative').removeClass('fixed');
+            dummyNav.removeClass('has_height');
+        }
+    }
 
-        // var thisScrollTop = $(this).scrollTop();
-        // nav.css("top", "-=" + (thisScrollTop - lastScrollTop))
-        // lastScrollTop = thisScrollTop;
+    //
+    function fadeOnScroll() {
+        var yPos = window.pageYOffset;
+        var wHeight = window.innerHeight;
+        var elements = $('.section');
+        var opaqueHeight = 0.6; // Height at which element opacity reaches 1
+        for(i = 0; i < elements.length; i++) {
+            element = $(elements[i]);
+            var ratio = (yPos + wHeight - element.offset().top)/(wHeight*opaqueHeight);
+            if (ratio >= 0 && ratio <= 1) { element.css('opacity', ratio); }
+            else { element.css('opacity', ratio >= 0); }
+        }
     }
 
     function handleIdleTime(thisScrollTop) {
