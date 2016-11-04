@@ -26,6 +26,15 @@ h4 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(15
 h5 { @include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255)); }
 h6 { @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); }
 
+p {
+	@extend %central;
+	@include defineTextStyle(0 4*$commonMargin $commonMargin 4*$commonMargin, $secondaryFontFamily, 130%, rgb(255,255,255));
+	// font-color: rgb(255,255,255);
+	// font-family: rhFontSecondary, Impact, Charcoal, sans-serif;
+	// margin: 4*$commonMargin;
+	// font-family: $commonFontFamily;
+}
+
 .side_text { @include exactSplit(45%, left); }
 .splitter { @include exactSplit(50%, left); }
 
@@ -114,6 +123,10 @@ h6 { @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); }
 .section { overflow: auto; }
 
 #news { padding-top: $navHeight + 2*$commonMargin; }
+#footer {
+	overflow: auto;
+	margin-bottom: 4*$commonMargin;
+}
 
 .spacer {
 	@extend .section;

@@ -2,7 +2,10 @@
 @font-face {
   font-family: rhFont;
   src: url(./fonts/headlineone.ttf) format("truetype"); }
-h1, h2 {
+@font-face {
+  font-family: rhFontSecondary;
+  src: url(./fonts/headlinetwo.ttf) format("truetype"); }
+h1, h2, p {
   text-align: center;
   vertical-align: middle; }
 
@@ -58,6 +61,12 @@ h6 {
   font-family: "rhFont", Impact, Charcoal, sans-serif;
   font-size: 150%;
   color: #969696; }
+
+p {
+  margin: 0 40px 10px 40px;
+  font-family: rhFontSecondary, Impact, Charcoal, sans-serif;
+  font-size: 130%;
+  color: white; }
 
 .side_text {
   float: left;
@@ -148,6 +157,10 @@ h6 {
 
 #news {
   padding-top: 85px; }
+
+#footer {
+  overflow: auto;
+  margin-bottom: 40px; }
 
 .spacer {
   border-radius: 10px;
