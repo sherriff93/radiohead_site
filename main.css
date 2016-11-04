@@ -1,0 +1,221 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@font-face {
+  font-family: rhFont;
+  src: url(./fonts/headlineone.ttf) format("truetype"); }
+h1, h2 {
+  text-align: center;
+  vertical-align: middle; }
+
+#nav:before, .spacer:before, .album_tile .album_tile_inner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  z-index: -1;
+  background: url("../images/cork_wallet.png"); }
+
+#dummy_nav.has_height, #nav {
+  height: 65px;
+  margin-bottom: 20px; }
+
+body {
+  z-index: 1;
+  margin: 0;
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
+h1 {
+  margin: 20px;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 400%;
+  color: #c8c8c8; }
+
+h2 {
+  margin: 20px;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 250%;
+  color: #969696; }
+
+h3 {
+  margin: 5px;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 250%;
+  color: white; }
+
+h4 {
+  margin: 5px;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 150%;
+  color: #969696; }
+
+h5 {
+  margin: 0;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 250%;
+  color: white; }
+
+h6 {
+  margin: 0;
+  font-family: "rhFont", Impact, Charcoal, sans-serif;
+  font-size: 150%;
+  color: #969696; }
+
+.side_text {
+  float: left;
+  width: 45%;
+  box-sizing: border-box; }
+
+.splitter {
+  float: left;
+  width: 50%;
+  box-sizing: border-box; }
+
+.iframe_div {
+  float: right;
+  width: 55%;
+  box-sizing: border-box; }
+  .iframe_div iframe {
+    float: right;
+    margin: 10px;
+    border-radius: 10px; }
+
+#logo {
+  position: relative;
+  padding-top: 10px;
+  display: block;
+  width: 100%; }
+
+#bg_image {
+  position: fixed;
+  z-index: -1; }
+
+#content {
+  margin: 0 10% 0 10%;
+  height: 100%;
+  position: relative; }
+
+#nav {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 10px;
+  z-index: 1;
+  border: 3px dashed black; }
+  #nav #nav_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    #nav #nav_menu li {
+      float: left; }
+      #nav #nav_menu li .nav_item {
+        display: block;
+        padding: 10px;
+        font-family: "rhFont", Impact, Charcoal, sans-serif;
+        font-size: 35px;
+        text-decoration: none;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
+        -moz-transition: opacity 0.15s ease-in-out;
+        -webkit-transition: opacity 0.15s ease-in-out; }
+        #nav #nav_menu li .nav_item:link, #nav #nav_menu li .nav_item:visited, #nav #nav_menu li .nav_item:active {
+          color: white; }
+        #nav #nav_menu li .nav_item:hover {
+          opacity: 0.5; }
+  #nav.is_relative {
+    position: relative;
+    width: 100%; }
+  #nav.fixed {
+    position: fixed;
+    top: 0;
+    width: 80%; }
+
+#social_media {
+  display: inline-block;
+  height: 100%;
+  float: right; }
+
+.social_media_img {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+  padding: 10px 10px 10px 0; }
+
+.section, .spacer {
+  overflow: auto; }
+
+.spacer {
+  border-radius: 10px;
+  display: block;
+  position: relative;
+  margin: 10px 0 0 0;
+  padding: 0;
+  border: 3px double black; }
+
+.album_tile {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  float: left;
+  width: 33.33333%;
+  box-sizing: border-box; }
+  .album_tile .album_tile_inner {
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    border: 3px double black; }
+  .album_tile:nth-child(3n - 1) .album_tile_inner {
+    margin: 10px 6.66667px 0 0; }
+  .album_tile:nth-child(3n) .album_tile_inner {
+    margin: 10px 3.33333px 0 3.33333px; }
+  .album_tile:nth-child(3n + 1) .album_tile_inner {
+    margin: 10px 0 0 6.66667px; }
+  .album_tile .cover {
+    display: inline-block;
+    position: relative;
+    width: 70%;
+    border-radius: 10px; }
+  .album_tile .buy_options {
+    display: block;
+    text-align: center; }
+    .album_tile .buy_options .buy_button {
+      border-radius: 3px;
+      margin: 10px;
+      display: inline-block;
+      position: relative;
+      border: 2px solid white;
+      padding: 5px; }
+      .album_tile .buy_options .buy_button:hover {
+        background-color: rgba(0, 0, 0, 0.8); }
+
+.tour_item_row {
+  position: relative;
+  overflow: auto;
+  border-top: 2px solid white;
+  padding: 10px 20px 10px 20px;
+  margin: 0 20px 0 20px;
+  background-color: transparent;
+  transition: background-color 0s ease-in-out;
+  -moz-transition: background-color 0s ease-in-out;
+  -webkit-transition: background-color 0s ease-in-out; }
+  .tour_item_row:hover {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .tour_item_row:first-of-type {
+    margin-top: 40px; }
+  .tour_item_row:last-of-type {
+    border-bottom: 2px solid white;
+    margin-bottom: 40px; }
+  .tour_item_row .tickets {
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 10px 10px 0;
+    border: 2px solid white;
+    padding: 5px; }
+    .tour_item_row .tickets:hover {
+      background-color: black; }
+
+/*# sourceMappingURL=main.css.map */
