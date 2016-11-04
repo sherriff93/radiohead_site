@@ -5,20 +5,20 @@
 @import "helper/mixins";
 
 body {
-  z-index: 1;
-  margin: 0;
-  background-size: 100%;
-  background-repeat: no-repeat;
+	z-index: 1;
+	margin: 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 h1 {
-  @extend %central;
-  @include defineTextStyle(2*$commonMargin, $commonFontFamily, 400%, rgb(200,200,200));
+	@extend %central;
+	@include defineTextStyle(2*$commonMargin, $commonFontFamily, 400%, rgb(200,200,200));
 }
 
 h2 {
-  @extend %central;
-  @include defineTextStyle(2*$commonMargin, $commonFontFamily, 250%, rgb(150,150,150));
+	@extend %central;
+	@include defineTextStyle(2*$commonMargin, $commonFontFamily, 250%, rgb(150,150,150));
 }
 
 h3 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255)); }
@@ -30,226 +30,159 @@ h6 { @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); }
 .splitter { @include exactSplit(50%, left); }
 
 .iframe_div {
-  @include exactSplit(55%, right);
-  iframe {
-    float: right;
-    margin: $commonMargin;
-    @include curvedCorners($commonRadius);
-  }
+	@include exactSplit(55%, right);
+	iframe {
+		@include curvedCorners($commonRadius);
+		float: right;
+		margin: $commonMargin;
+	}
 
 }
 
 #logo {
-  position: relative;
-  padding-top: 10px;
-  display: block;
-  width: 100%;
+	position: relative;
+	padding-top: $commonMargin;
+	display: block;
+	width: 100%;
 }
 
 #bg_image {
-  position: fixed;
-  z-index: -1;
+	position: fixed;
+	z-index: -1;
 }
 
 #content {
-  margin: 0 10% 0 10%;
-  height: 100%;
-  position: relative;
-}
-
-#dummy_nav {
-  &.has_height {
-    @extend %has_nav_height;
-  }
+	margin: 0 10% 0 10%;
+	height: 100%;
+	position: relative;
 }
 
 #nav {
-  @extend %has_nav_height;
-  display: block;
-  box-sizing: border-box;
-  @include curvedCorners($commonRadius);
-  z-index: 1;
-  border: 3px dashed black;
-  @extend %has_background_image;
-  // margin: 0 10px 0 10px;
-  #nav_menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    li {
-      float: left;
-      .nav_item {
-        display: block;
-        padding: $commonMargin;
-        font-family: $commonFontFamily;
-        font-size: $navTextSize;
-        text-decoration: none;
-        &:link, &:visited, &:active { color:rgb(255,255,255); }
-        @include fadeInOut(opacity, 1, 0.5, 0.15s);
-      }
-    }
-  }
-  &.is_relative {
-    position: relative;
-    width: 100%;
-    // top: $logoHeight;
-  }
-  &.is_fixed {
-    transition: margin-top 0.3s ease-in-out;
-    &.hide {
-      margin-top: -$navHeight;
-    }
-    position: fixed;
-    top: 0;
-    width: 80%;
-  }
+	@extend %has_background_image;
+	@include curvedCorners($commonRadius);
+	height: $navHeight;
+	display: block;
+	box-sizing: border-box;
+	z-index: 1;
+	border: 3px dashed black;
+	#nav_menu {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li {
+			float: left;
+			.nav_item {
+				display: block;
+				padding: $commonMargin;
+				font-family: $commonFontFamily;
+				font-size: $navTextSize;
+				text-decoration: none;
+				&:link, &:visited, &:active { color:rgb(255,255,255); }
+				@include fadeInOut(opacity, 1, 0.5, 0.15s);
+			}
+		}
+	}
+	&.is_absolute {
+		position: absolute;
+		width: 100%;
+	}
+	&.is_fixed {
+		transition: margin-top 0.3s ease-in-out;
+		position: fixed;
+		top: 0;
+		width: 80%;
+		&.hide {
+			margin-top: -$navHeight;
+		}
+	}
 }
 
 #social_media {
-  display: inline-block;
-  height: 100%;
-  float: right;
+	display: inline-block;
+	height: 100%;
+	float: right;
 }
 
 .social_media_img {
-  display: inline-block;
-  box-sizing: border-box;
-  margin: 0;
-  height:100%;
-  padding: $commonMargin $commonMargin $commonMargin 0;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	height:100%;
+	padding: $commonMargin $commonMargin $commonMargin 0;
 }
 
 .section { overflow: auto; }
 
+#news { padding-top: $navHeight + 2*$commonMargin; }
+
 .spacer {
-  @extend .section;
-  @include curvedCorners($commonRadius);
-  display: block;
-  position: relative;
-  margin: $commonMargin 0 0 0;
-  padding: 0;
-  border: $thickBlackBorder;
-  @extend %has_background_image;
-  // background: $commonBackground;
-  // background-image: url("../images/cork_wallet.png");
-  // z-index: 1;
+	@extend .section;
+	@extend %has_background_image;
+	@include curvedCorners($commonRadius);
+	display: block;
+	position: relative;
+	margin: $commonMargin 0 0 0;
+	padding: 0;
+	border: $thickBlackBorder;
 }
 
 .album_tile {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  // overflow: auto;
-  @include exactSplit(33.333333%, left);
-  // border-top: $thinWhiteBorder;
-  // margin: 0;
-  // padding: 0;
-  // &:last-of-type { border-bottom: $thinWhiteBorder; }
-  .album_tile_inner {
-    padding: $commonMargin;
-    position: relative;
-    @extend %has_background_image;
-    @include curvedCorners($commonRadius);
-    // background: $commonBackground;
-    border: $thickBlackBorder;
-  }
+	@include exactSplit(33.333333%, left);
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	.album_tile_inner {
+		@extend %has_background_image;
+		@include curvedCorners($commonRadius);
+		padding: $commonMargin;
+		position: relative;
+		border: $thickBlackBorder;
+	}
+  // Adjust tile margins based on their position
   &:nth-child(3n - 1) { .album_tile_inner { margin: $commonMargin 2*$commonMargin/3 0 0; } }
   &:nth-child(3n),{ .album_tile_inner     { margin: $commonMargin $commonMargin/3 0 $commonMargin/3; } }
   &:nth-child(3n + 1) { .album_tile_inner { margin: $commonMargin 0 0 2*$commonMargin/3; } }
   .cover {
-    display: inline-block;
-    position: relative;
-    width: 70%;
-    border-radius: $commonRadius;
-    // border: $thickBlackBorder;
+  	display: inline-block;
+  	position: relative;
+  	width: 70%;
+  	border-radius: $commonRadius;
   }
   .buy_options {
-    display: block;
-    text-align: center;
-    .buy_button {
-      @include curvedCorners($buttonRadius);
-      margin: $commonMargin;
-      display: inline-block;
-      position: relative;
-      border: $thinWhiteBorder;
-      &:hover {background-color: darken($commonBackground, 100%); }
-      padding: $commonMargin/2;
-    }
+  	display: block;
+  	text-align: center;
+  	.buy_button {
+  		@include curvedCorners($buttonRadius);
+  		margin: $commonMargin;
+  		display: inline-block;
+  		position: relative;
+  		border: $thinWhiteBorder;
+  		padding: $commonMargin/2;
+  		&:hover {background-color: darken($commonBackground, 100%); }
+  	}
   }
 }
 
 .tour_item_row {
-  position: relative;
-  overflow: auto;
-  border-top: $thinWhiteBorder;
-  padding: $commonMargin 2*$commonMargin $commonMargin 2*$commonMargin;
-  margin: 0 2*$commonMargin 0 2*$commonMargin;
-  @include fadeInOut(background-color, transparent, rgba(0, 0, 0, 0.2), 0s);
-  &:first-of-type { margin-top: 4*$commonMargin }
-  &:last-of-type {
-    border-bottom: $thinWhiteBorder;
-    margin-bottom: 4*$commonMargin;
-  }
-  .tickets {
-    @include curvedCorners($buttonRadius);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 0 $commonMargin $commonMargin 0;
-    border: $thinWhiteBorder;
-    &:hover {background-color:  rgba(0, 0, 0, 1); }
-    // @include fadeInOut(background-color, transparent, darken($commonBackground, 100%), 0s);
-    padding: $commonMargin/2;
-  }
+	@include fadeInOut(background-color, transparent, rgba(0, 0, 0, 0.2), 0s);
+	position: relative;
+	overflow: auto;
+	border-top: $thinWhiteBorder;
+	padding: $commonMargin 2*$commonMargin $commonMargin 2*$commonMargin;
+	margin: 0 2*$commonMargin 0 2*$commonMargin;
+	&:first-of-type { margin-top: 4*$commonMargin }
+	&:last-of-type {
+		border-bottom: $thinWhiteBorder;
+		margin-bottom: 4*$commonMargin;
+	}
+	.tickets {
+		@include curvedCorners($buttonRadius);
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		margin: 0 $commonMargin $commonMargin 0;
+		border: $thinWhiteBorder;
+		padding: $commonMargin/2;
+		&:hover {background-color:  rgba(0, 0, 0, 1); }
+	}
 }
-
-
-
-
-
-
-
-
-
-// h1 {
-//   font-family: roboto, sans-serif;
-//   @extend %center;
-// }
-
-// .banner {
-//   font-family: 'pacifico', cursive;
-//   height: 400px;
-//   background-image: url($lemonade-banner);
-//   border: {
-//     top: $border;
-//     bottom: $border;
-//   } 
-
-//   .slogan {
-//     @extend %absolute;
-//     background-color: $translucent-white;
-//     border: 4px solid black;
-//     top: 200px;
-//     left: 25%;
-//     line-height: 200px;
-//     @include dimensions(50%, 200px);
-
-//     span {
-//       @extend %absolute;
-//       @extend %center;
-//       width: 40%;
-//       left: 30%;
-//     }
-//   }
-// }
-
-// .container {
-//   font-family: 'pacifico', cursive;
-
-//   .icon {
-//     display: inline-block;
-//     margin: 2%;
-//     border: $border;
-//     @include dimensions(300px, 300px);
-//   }
-// }

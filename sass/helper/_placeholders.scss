@@ -1,28 +1,19 @@
 %central {
-   	text-align: center;
-   	vertical-align: middle;
+	text-align: center;
+	vertical-align: middle;
 }
 
-%rh_font { 
-    font-family: $commonFontFamily;
-    // font-family: Impact, Charcoal, sans-serif;
-}
-
-%has_background_image {
-	&:before {
-	    content: "";
-	    position: absolute;
-	    top: 0; 
-	    left: 0;
-	    width: 100%; 
-	    height: 100%;  
-	    opacity: 0.9; 
-	    z-index: -1;
-	    background: url("../images/cork_wallet.png");
-  	}
-}
-
-%has_nav_height {
-    height: $navHeight;
-    margin-bottom: 2*$commonMargin;
-}
+	// Set background to translucent background image
+	%has_background_image {
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0; 
+			left: 0;
+			width: 100%; 
+			height: 100%;  
+			opacity: 0.9; 
+			z-index: -1;
+			background: url("../images/cork_wallet.png");
+		}
+	}

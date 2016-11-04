@@ -17,10 +17,6 @@ h1, h2 {
   z-index: -1;
   background: url("../images/cork_wallet.png"); }
 
-#dummy_nav.has_height, #nav {
-  height: 65px;
-  margin-bottom: 20px; }
-
 body {
   z-index: 1;
   margin: 0;
@@ -78,9 +74,9 @@ h6 {
   width: 55%;
   box-sizing: border-box; }
   .iframe_div iframe {
+    border-radius: 10px;
     float: right;
-    margin: 10px;
-    border-radius: 10px; }
+    margin: 10px; }
 
 #logo {
   position: relative;
@@ -98,9 +94,10 @@ h6 {
   position: relative; }
 
 #nav {
+  border-radius: 10px;
+  height: 65px;
   display: block;
   box-sizing: border-box;
-  border-radius: 10px;
   z-index: 1;
   border: 3px dashed black; }
   #nav #nav_menu {
@@ -123,8 +120,8 @@ h6 {
           color: white; }
         #nav #nav_menu li .nav_item:hover {
           opacity: 0.5; }
-  #nav.is_relative {
-    position: relative;
+  #nav.is_absolute {
+    position: absolute;
     width: 100%; }
   #nav.is_fixed {
     transition: margin-top 0.3s ease-in-out;
@@ -149,6 +146,9 @@ h6 {
 .section, .spacer {
   overflow: auto; }
 
+#news {
+  padding-top: 85px; }
+
 .spacer {
   border-radius: 10px;
   display: block;
@@ -158,16 +158,16 @@ h6 {
   border: 3px double black; }
 
 .album_tile {
-  display: inline-block;
-  position: relative;
-  text-align: center;
   float: left;
   width: 33.33333%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  text-align: center; }
   .album_tile .album_tile_inner {
+    border-radius: 10px;
     padding: 10px;
     position: relative;
-    border-radius: 10px;
     border: 3px double black; }
   .album_tile:nth-child(3n - 1) .album_tile_inner {
     margin: 10px 6.66667px 0 0; }
@@ -194,15 +194,15 @@ h6 {
         background-color: rgba(0, 0, 0, 0.8); }
 
 .tour_item_row {
+  background-color: transparent;
+  transition: background-color 0s ease-in-out;
+  -moz-transition: background-color 0s ease-in-out;
+  -webkit-transition: background-color 0s ease-in-out;
   position: relative;
   overflow: auto;
   border-top: 2px solid white;
   padding: 10px 20px 10px 20px;
-  margin: 0 20px 0 20px;
-  background-color: transparent;
-  transition: background-color 0s ease-in-out;
-  -moz-transition: background-color 0s ease-in-out;
-  -webkit-transition: background-color 0s ease-in-out; }
+  margin: 0 20px 0 20px; }
   .tour_item_row:hover {
     background-color: rgba(0, 0, 0, 0.2); }
   .tour_item_row:first-of-type {

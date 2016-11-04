@@ -1,3 +1,4 @@
+var app = angular.module("RadioheadApp", []);
 // var main = function(){
 
 //    var navItem = $('.nav_item');
@@ -9,4 +10,3 @@
 //    });
 // };
 // $(document).ready(main);
-var app = angular.module("RadioheadApp", []);

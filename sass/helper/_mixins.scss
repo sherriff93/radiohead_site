@@ -1,14 +1,8 @@
-// Sass mixins
-
-@mixin dimensions($width, $height){
-  width: $width;
-  height: $height;
-}
-
+//Enable divs to sit side-by-side whilst occupying 100% width collectively
 @mixin exactSplit($width, $float) {
 	float: $float;
-    width: $width;
-    box-sizing: border-box;
+	width: $width;
+	box-sizing: border-box;
 }
 
 @mixin fadeInOut($propertyName, $fromValue, $toValue, $transitionLength) {
