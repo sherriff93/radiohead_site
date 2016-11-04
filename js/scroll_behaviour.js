@@ -15,6 +15,8 @@
 // Make images small file size
 // Like/dislike buttons?
 // Have to scroll up to reset fade after refresh
+// sort out navheight hack
+// Look at parallax/scroll improvements, replace background with better quality
 
 var main = function() {
 
@@ -69,32 +71,37 @@ var main = function() {
     });
 
     // Checks the state of scrolling only at specified intervals to save processing time
-    // setInterval(function() {
-    //     var thisScrollTop = $(this).scrollTop();
+    setInterval(function() {
+        var thisScrollTop = $(this).scrollTop();
 
-    //     handleIdleTime(thisScrollTop);
+        handleIdleTime(thisScrollTop);
 
-    //     // If manually scrolling
-    //     if (hasScrolled) {
-    //         hasScrolled = false;
+        // If manually scrolling
+        if (hasScrolled) {
+            hasScrolled = false;
 
-    //         // Ensure they scrolled more than the minimum distance
-    //         if (Math.abs(lastScrollTop - thisScrollTop) <= minScroll)
-    //             return;
-    //         // If they scrolled down and the page is below the nav bar, hide it
-    //         if (thisScrollTop > lastScrollTop && thisScrollTop > logo.height + nav.outerHeight()) {
-    //             // nav.animate({top: '-' + nav.height} + 'px');
-    //             nav.addClass('hide');
-    //         }
-    //         // If they scrolled up, show the nav bar. Don't scroll up if past the end of the document (Such as with macs)
-    //         else if (thisScrollTop + $(window).height() < $(document).height()) {
-    //             // nav.animate({top: '+' + nav.height} + 'px');
-    //             nav.removeClass('hide');
-    //         }
-    //     }
-    //     lastScrollTop = thisScrollTop;
+            // Ensure that the scroll position is past the nav bar
+            if (thisScrollTop < logo.height + nav.outerHeight()) {
+                    nav.removeClass('hide');
+                    lastScrollTop = thisScrollTop;
+                    return;
+            }
+            // Ensure they scrolled more than the minimum distance
+            if (Math.abs(lastScrollTop - thisScrollTop) <= minScroll && isBelowNav){ return; }
+            // If they scrolled down and the page is below the nav bar, hide it
+            if (thisScrollTop > lastScrollTop) {// && thisScrollTop > logo.height + nav.outerHeight()) {
+                // nav.animate({top: '-' + nav.height} + 'px');
+                nav.addClass('hide');
+            }
+            // If they scrolled up, show the nav bar. Don't scroll up if past the end of the document (Such as with macs)
+            else if (thisScrollTop + $(window).height() < $(document).height()) {
+                // nav.animate({top: '+' + nav.height} + 'px');
+                nav.removeClass('hide');
+            }
+        }
+        lastScrollTop = thisScrollTop;
         
-    // }, interval);
+    }, interval);
 
     function parallax() {
         // Parallax scroll function. Adjusts scrolling speed of the background image based on its size,
@@ -116,11 +123,11 @@ var main = function() {
         var logoHeight = $(logo).outerHeight();
         var dummyNav = $('#dummy_nav');
         if (window.pageYOffset >= logoHeight) {
-            nav.addClass('fixed').removeClass('is_relative');
+            nav.addClass('is_fixed').removeClass('is_relative');
             dummyNav.addClass('has_height');
         }
         else {
-            nav.addClass('is_relative').removeClass('fixed');
+            nav.addClass('is_relative').removeClass('is_fixed');
             dummyNav.removeClass('has_height');
         }
     }

@@ -14,66 +14,25 @@ body {
 h1 {
   @extend %central;
   @include defineTextStyle(2*$commonMargin, $commonFontFamily, 400%, rgb(200,200,200));
-  // margin: 2*$commonMargin;
-  // font-family: $commonFontFamily;
-  // color: rgb(200,200,200);
-  // font-size: 400%;
 }
 
 h2 {
   @extend %central;
   @include defineTextStyle(2*$commonMargin, $commonFontFamily, 250%, rgb(150,150,150));
-  // margin: 2*$commonMargin;
-  // font-family: $commonFontFamily;
-  // color: rgb(150,150,150);
-  // font-size: 250%;
 }
 
-h3 {
-  @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255));
-  // margin: 5px;
-  // font-family: $commonFontFamily;
-  // color: rgb(255,255,255);
-  // font-size: 250%;
-}
+h3 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255)); }
+h4 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(150,150,150)); }
+h5 { @include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255)); }
+h6 { @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); }
 
-h4 {
-  @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(150,150,150));
-  // margin: 5px;
-  // font-family: $commonFontFamily;
-  // font-size: 150%;
-  // color: rgb(150,150,150);
-}
-
-h5 {
-  @include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255))
-  // margin: 0;
-  // font-family: $commonFontFamily;
-  // color: rgb(255,255,255);
-  // font-size: 250%;
-}
-
-h6 {
-  @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150))
-  // margin: 0;
-  // font-family: $commonFontFamily;
-  // font-size: 150%;
-  // color: rgb(150,150,150);
-}
-
-.side_text {
-  @include exactSplit(45%, left);
-}
-
-.splitter {
-  @include exactSplit(50%, left);
-}
+.side_text { @include exactSplit(45%, left); }
+.splitter { @include exactSplit(50%, left); }
 
 .iframe_div {
   @include exactSplit(55%, right);
   iframe {
     float: right;
-    // border: $thickBlackBorder;
     margin: $commonMargin;
     @include curvedCorners($commonRadius);
   }
@@ -83,13 +42,8 @@ h6 {
 #logo {
   position: relative;
   padding-top: 10px;
-  // padding-bottom: 10px;
   display: block;
-  // width: 100%;
-  // margin-bottom: $navHeight + $commonMargin;
   width: 100%;
-  // margin: 20px 0 20px 0;
-  // height: $logoHeight;
 }
 
 #bg_image {
@@ -98,8 +52,6 @@ h6 {
 }
 
 #content {
-  // background-image: url("../images/radiohead_logo.png");
-  // z-index: 1;
   margin: 0 10% 0 10%;
   height: 100%;
   position: relative;
@@ -115,16 +67,11 @@ h6 {
   @extend %has_nav_height;
   display: block;
   box-sizing: border-box;
-  // background-color: black;
   @include curvedCorners($commonRadius);
   z-index: 1;
   border: 3px dashed black;
   @extend %has_background_image;
   // margin: 0 10px 0 10px;
-  // &.hide {
-  //   transition: top 0.3s ease-in-out;
-  //   top: -$navHeight;
-  // }
   #nav_menu {
     list-style-type: none;
     margin: 0;
@@ -147,7 +94,11 @@ h6 {
     width: 100%;
     // top: $logoHeight;
   }
-  &.fixed {
+  &.is_fixed {
+    transition: margin-top 0.3s ease-in-out;
+    &.hide {
+      margin-top: -$navHeight;
+    }
     position: fixed;
     top: 0;
     width: 80%;
