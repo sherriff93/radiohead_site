@@ -67,7 +67,7 @@ var main = function() {
             	return;
             }
             // Ensure they scrolled more than the minimum distance
-            if (Math.abs(lastScrollTop - thisScrollTop) <= minScroll && isBelowNav){ return; }
+            if (Math.abs(lastScrollTop - thisScrollTop) <= minScroll && thisScrollTop < headerBottom){ return; }
             // If they scrolled down and the page is below the nav bar, hide it
             if (thisScrollTop > lastScrollTop) { nav.addClass('hide'); }
             // If they scrolled up, show the nav bar. Don't scroll up if past the end of the document (Such as with macs)
