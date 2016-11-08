@@ -19,7 +19,7 @@ var main = function() {
     navItem.click(function() {
         // Get target href and offset
         var href = $(this).attr('href');
-        desiredOffset = $(href).offset().top;
+        desiredOffset = Math.floor($(href).offset().top);
 
         // Scroll to target
         root.animate({
@@ -41,7 +41,7 @@ var main = function() {
         	onFirstHashScroll = false;
         }
         // If autoscrolling and target has been reached, set to null
-        else if (pageYOffset == desiredOffset || $(window).scrollTop() + $(window).height() == $(document).height()) {
+        else if (window.pageYOffset == desiredOffset || $(window).scrollTop() + $(window).height() == $(document).height()) {
         	desiredOffset = null;
         }
         // Check if manually scrolling
