@@ -23,3 +23,12 @@
 	font-size: $font-size;
 	color: $color;
 }
+
+@mixin hasBorderImage($image, $borderWidth) {
+	border-style: solid;
+	border-width: $borderWidth;
+	-moz-border-image: $image 22 26 25 repeat;
+	-webkit-border-image: $image 22 26 25 repeat;
+	-o-border-image: $image 22 26 25 repeat;
+	border-image: $image 22 26 25 fill repeat;
+}

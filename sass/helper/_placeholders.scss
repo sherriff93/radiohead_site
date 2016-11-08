@@ -3,17 +3,17 @@
 	vertical-align: middle;
 }
 
-	// Set background to translucent background image
-	%has_background_image {
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0; 
-			left: 0;
-			width: 100%; 
-			height: 100%;  
-			opacity: 0.9; 
-			z-index: -1;
-			background: url("../images/cork_wallet.png");
-		}
+// Set background to translucent background image
+%has_background_image {
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0; 
+		left: 0;
+		width: 100%; 
+		height: 100%;  
+		opacity: 0.9; 
+		z-index: -1;
+		background: url("../images/cork_wallet.png");
 	}
+}

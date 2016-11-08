@@ -4,7 +4,9 @@ $logoHeight: 150px;
 $navTextSize: 35px;
 $navTopSpace: 30px;
 $commonMargin: 10px;
-$navHeight: $navTextSize + 2*$commonMargin + 2*5px; // Accounts for inconsistency between alledged font sizing and actual pixel sizing
+$commonBorderWidth: 6px;
+$navBorderWidth: 11px;
+$navHeight: $navTextSize + 2*$commonMargin + 2*$navBorderWidth; // Accounts for inconsistency between alledged font sizing and actual pixel sizing
 $toHide: $navHeight + $navTopSpace;
 $thinWhiteBorder: 2px solid white;
 $thickBlackBorder: 3px double black;

@@ -1,0 +1,17 @@
+Welcome to my Radiohead website project!
+
+This is not intended to be for any kind of commercial use. I have used it to demonstrate some Sass, Javascript, Jquery and AngularJS techniques.
+
+Javascript behaviour:
+
+1. When you click an item in the nav, the page will scroll smoothly to that item.
+2. The background image has a parallax scrolling effect. The size of the background image is calculated so that the end of the document coincides with the end of the image.
+3. The nav bar sticks to the window as the user scrolls past, so to scroll with it.
+4. When the nav bar is stuck to the window, it will hide if the user scrolls down, and show if they scroll up.
+5. The nav bar will hide if the page is idle for a set amount of time. If the user is hovering on any particular nav item it will not hide.
+6. The page sections are made to fade in as the user scrolls.
+
+The tour items, and the albums under "music" are both made under AngularJS directives "tour-item" and "album" respectively.
+
+Note:
+The scrolling jerks in Firefox. Currently editting the javascript behaviour to decrease the amount of calculation needed when scrolling.

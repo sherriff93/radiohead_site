@@ -23,16 +23,18 @@ h2 {
 
 h3 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255)); }
 h4 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(150,150,150)); }
-h5 { @include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255)); }
-h6 { @include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); }
+h5 {
+	@include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255)); 
+	letter-spacing: 1px;
+}
+h6 {
+	@include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); 
+	letter-spacing: 1px;
+}
 
 p {
 	@extend %central;
 	@include defineTextStyle(0 4*$commonMargin $commonMargin 4*$commonMargin, $secondaryFontFamily, 130%, rgb(255,255,255));
-	// font-color: rgb(255,255,255);
-	// font-family: rhFontSecondary, Impact, Charcoal, sans-serif;
-	// margin: 4*$commonMargin;
-	// font-family: $commonFontFamily;
 }
 
 .side_text { @include exactSplit(45%, left); }
@@ -41,7 +43,6 @@ p {
 .iframe_div {
 	@include exactSplit(55%, right);
 	iframe {
-		@include curvedCorners($commonRadius);
 		float: right;
 		margin: $commonMargin;
 	}
@@ -67,13 +68,11 @@ p {
 }
 
 #nav {
-	@extend %has_background_image;
-	@include curvedCorners($commonRadius);
+	@include hasBorderImage(url(../images/border1.png), $navBorderWidth);
 	height: $navHeight;
 	display: block;
 	box-sizing: border-box;
 	z-index: 1;
-	border: 3px dashed black;
 	#nav_menu {
 		list-style-type: none;
 		margin: 0;
@@ -116,7 +115,7 @@ p {
 	display: inline-block;
 	box-sizing: border-box;
 	margin: 0;
-	height:100%;
+	height: 100%;
 	padding: $commonMargin $commonMargin $commonMargin 0;
 }
 
@@ -130,13 +129,11 @@ p {
 
 .spacer {
 	@extend .section;
-	@extend %has_background_image;
-	@include curvedCorners($commonRadius);
+	@include hasBorderImage(url(../images/border2.png), $commonBorderWidth);
 	display: block;
 	position: relative;
 	margin: $commonMargin 0 0 0;
 	padding: 0;
-	border: $thickBlackBorder;
 }
 
 .album_tile {
@@ -145,11 +142,9 @@ p {
 	position: relative;
 	text-align: center;
 	.album_tile_inner {
-		@extend %has_background_image;
-		@include curvedCorners($commonRadius);
+		@include hasBorderImage(url(../images/border2.png), $commonBorderWidth);
 		padding: $commonMargin;
 		position: relative;
-		border: $thickBlackBorder;
 	}
   // Adjust tile margins based on their position
   &:nth-child(3n - 1) { .album_tile_inner { margin: $commonMargin 2*$commonMargin/3 0 0; } }

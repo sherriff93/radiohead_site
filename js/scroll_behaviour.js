@@ -33,10 +33,9 @@ var main = function() {
     });
 
     $(window).scroll(function(event) {
-        // Update parallax scrolling
-        parallax();
-        scrollNav();
-        fadeOnScroll();
+        parallax(); // Update parallax scrolling
+        scrollNav(); // Hide/show nav based on scroll
+        fadeOnScroll(); // Fade elements based on their scroll position
         // If the window is scrolling to an anchor as part of the page load, do nothing
         if (onFirstHashScroll) { 
         	onFirstHashScroll = false;
