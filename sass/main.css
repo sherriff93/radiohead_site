@@ -110,6 +110,7 @@ p {
     #nav #nav_menu li {
       float: left; }
       #nav #nav_menu li .nav_item {
+        white-space: nowrap;
         display: block;
         padding: 10px;
         font-family: "rhFont", Impact, Charcoal, sans-serif;

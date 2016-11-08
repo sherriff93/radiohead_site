@@ -80,6 +80,7 @@ p {
 		li {
 			float: left;
 			.nav_item {
+				white-space: nowrap;
 				display: block;
 				padding: $commonMargin;
 				font-family: $commonFontFamily;
