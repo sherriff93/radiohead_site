@@ -1,7 +1,8 @@
 Welcome to my Radiohead website project!
 
 This is not intended to be for any kind of commercial use. I have used it to demonstrate some Sass,
-Javascript, Jquery and AngularJS techniques.
+Javascript, Jquery and AngularJS techniques. Most recent versions of Opera, Firefox and Chrome
+tested, Safari only remotely as I don't have a Mac. 
 
 --- Contents ---
 
@@ -31,5 +32,4 @@ and "album" respectively.
 1. The scrolling jerks in Firefox and Safari. Currently editting the javascript behaviour to
 decrease the amount of calculation needed when scrolling.
 
-2. Most recent versions of Opera, Firefox and Chrome tested, Safari only remotely as I don't have a
-Mac. Backward compatibility currently being worked on.
+2. Backward compatibility currently being worked on.
