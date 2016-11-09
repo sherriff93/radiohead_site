@@ -32,4 +32,4 @@ and "album" respectively.
 decrease the amount of calculation needed when scrolling.
 
 2. Most recent versions of Opera, Firefox and Chrome tested, Safari only remotely as I don't have a
-Mac. Backward compatibility is yet to be done.
+Mac. Backward compatibility currently being worked on.
