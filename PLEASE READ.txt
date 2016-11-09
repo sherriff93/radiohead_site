@@ -4,11 +4,13 @@ This is not intended to be for any kind of commercial use. I have used it to dem
 Javascript, Jquery and AngularJS techniques.
 
 --- Contents ---
+
 1. Javascript behaviour
 2. Angular
-3. Current issues
+3. Current work
 
 --- Javascript behaviour ---
+
 1. When you click an item in the nav, the page will scroll smoothly to that item.
 2. The background image has a parallax scrolling effect. The size of the background image is
 calculated so that the end of the document coincides with the end of the image.
@@ -20,10 +22,14 @@ any particular nav item it will not hide.
 6. The page sections are made to fade in as the user scrolls.
 
 --- Angular ---
+
 The tour items, and the albums under "music" are both made under AngularJS directives "tour-item"
 and "album" respectively.
 
---- Current issues ---
+--- Current work ---
 
 1. The scrolling jerks in Firefox and Safari. Currently editting the javascript behaviour to
 decrease the amount of calculation needed when scrolling.
+
+2. Most recent versions of Opera, Firefox and Chrome tested, Safari only remotely as I don't have a
+Mac. Backward compatibility is yet to be done.
