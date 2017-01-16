@@ -24,11 +24,11 @@ h2 {
 h3 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 250%, rgb(255,255,255)); }
 h4 { @include defineTextStyle(0.5*$commonMargin, $commonFontFamily, 150%, rgb(150,150,150)); }
 h5 {
-	@include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255)); 
+	@include defineTextStyle(0, $commonFontFamily, 250%, rgb(255,255,255));
 	letter-spacing: 1px;
 }
 h6 {
-	@include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150)); 
+	@include defineTextStyle(0, $commonFontFamily,  150%, rgb(150,150,150));
 	letter-spacing: 1px;
 }
 
@@ -42,9 +42,14 @@ p {
 
 .iframe_div {
 	@include exactSplit(55%, right);
+		position: relative;
+		padding-bottom: 30%;
+    height: 0;
 	iframe {
 		float: right;
-		margin: $commonMargin;
+		position: absolute;
+		right: 10px;
+		top: 10px;
 	}
 
 }

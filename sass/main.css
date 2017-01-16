@@ -72,10 +72,15 @@ p {
 .iframe_div {
   float: right;
   width: 55%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 30%;
+  height: 0; }
   .iframe_div iframe {
     float: right;
-    margin: 10px; }
+    position: absolute;
+    right: 10px;
+    top: 10px; }
 
 #logo {
   position: relative;
